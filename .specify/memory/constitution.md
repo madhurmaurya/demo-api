@@ -1,50 +1,39 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: none -> 0.1.0
+Modified principles: Added Minimal Architecture, SOLID API Design, Security First, Test Coverage & Quality, API Contract Transparency
+Added sections: Additional Constraints, Development Workflow
+Removed sections: none
+Templates reviewed for alignment: ✅ .specify/templates/plan-template.md, ✅ .specify/templates/spec-template.md, ✅ .specify/templates/tasks-template.md
+Follow-up TODOs: TODO(RATIFICATION_DATE): original adoption date required
+-->
+# demo-api Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Minimal Architecture
+Keep the API lean and focused. Every layer and dependency must solve a real API need; avoid unused libraries, unnecessary abstractions, and premature optimization. Simplicity is mandatory, not optional.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. SOLID API Design
+Design components around single responsibilities, open/closed extension, Liskov-safe abstractions, narrow interfaces, and dependency inversion. Controllers, services, and data handling must remain decoupled and easily testable.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Security First
+Treat security as a core responsibility for every API endpoint. Enforce authentication and authorization, validate and sanitize input, normalize errors, protect sensitive data, and apply secure defaults for transport, headers, secrets, and external access.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Test Coverage & Quality
+Maintain at least 80% code coverage through unit and integration tests. Cover expected behavior, validation failures, security checks, and boundary cases. No feature is complete until tests prove it works and stays stable.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. API Contract Transparency
+Provide a live Swagger/OpenAPI page that matches the implementation and supports interactive testing. Public API behavior must be documented, versioned, and discoverable through machine-readable contracts.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Additional Constraints
+Dependencies and implementation choices MUST be justified by direct API value. Avoid "bloatware": do not add frameworks, packages, or layers unless they are essential to API security, maintainability, or documented behavior. Prefer explicit code over hidden machinery.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+Every API change MUST include working tests, updated documentation, and a peer review. Pull requests require a reviewer sign-off, a security checklist for sensitive changes, and verification of Swagger docs and coverage reports before merge.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution defines the baseline for API development in this repository. Amendments require a written rationale, a reviewer-approved PR, and a follow-up verification task. Versioning decisions follow semantic rules: major for incompatible principle changes, minor for additions or material guidance expansion, patch for wording and typo refinements. Compliance reviews are required for security-sensitive and cross-cutting changes.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**Version**: 0.1.0 | **Ratified**: TODO(RATIFICATION_DATE): original adoption date required | **Last Amended**: 2026-06-08
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
