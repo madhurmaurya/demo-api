@@ -1,0 +1,71 @@
+# .gitignore for .NET projects - Visual Studio, Rider, OS, and build artifacts
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+out/
+publish/
+**/bin/
+**/obj/
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+**/project.fragment.lock.json
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# User-specific files
+*.rsuser
+*.userprefs
+*.pidb
+*.svclog
+
+# ASP.NET / settings
+appsettings.*.Local.json
+appsettings.*.Secrets.json
+secrets.json
+
+# Logs
+*.log
+logs/
+
+# Dotnet publish
+*.Publish.xml
+
+# Certificate and key files
+*.pfx
+*.key
+*.cer
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Data protection keys (local development)
+**/DataProtection-Keys/
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Misc
+.vscode/
+.env
+.env.*
+
+# Ignore compiled database files
+*.db
+*.sqlite
