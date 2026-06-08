@@ -10,6 +10,13 @@
 
 ## User Scenarios & Testing *(mandatory)*
 
+## Clarifications
+
+### Session 2026-06-08
+
+- Q: Which authentication mechanism should the API use? → A: OAuth2 / JWT bearer tokens with scopes
+
+
 ### User Story 1 - View inventory details (Priority: P1)
 A client application needs to retrieve current product availability so it can display inventory levels and product details.
 
@@ -65,7 +72,7 @@ A developer or integrator needs a live API contract page to explore endpoints, v
 
 - **FR-001**: The system MUST expose inventory operations for listing products, retrieving a single product inventory record, and creating or updating inventory counts.
 - **FR-002**: The system MUST validate request payloads and return explicit error details for invalid or missing fields.
-- **FR-003**: The system MUST require authenticated access for all inventory endpoints and reject unauthorized requests.
+- **FR-003**: The system MUST require authenticated access for all inventory endpoints and reject unauthorized requests. Authentication mechanism: OAuth2 / JWT bearer tokens with scope-based authorization.
 - **FR-004**: The system MUST document all inventory endpoints, request formats, and response schemas in an interactive API contract page.
 - **FR-005**: The system MUST preserve inventory quantities as non-negative integers and prevent stock from being set below zero.
 - **FR-006**: The system MUST include automated tests that cover at least 80% of production inventory API logic and verify both success and failure cases.
@@ -83,11 +90,11 @@ A developer or integrator needs a live API contract page to explore endpoints, v
 - **SC-002**: At least 80% of production inventory API logic is covered by automated tests that pass in the release candidate.
 - **SC-003**: The live API contract page documents all inventory endpoints and permits interactive test calls for list and detail operations.
 - **SC-004**: Invalid inventory requests return clear validation errors instead of generic failure responses.
-- **SC-005**: The API supports secure access so unauthorized requests are rejected consistently.
+- **SC-005**: The API supports secure access so unauthorized requests are rejected consistently. Token validation and scope enforcement must be performed; unauthorized or insufficient-scope requests return appropriate 401/403 responses.
 
 ## Assumptions
 
 - The API is intended for service-to-service or partner integration rather than a direct end-user interface.
-- Authentication will use a standard token-based mechanism appropriate for API access.
+- Authentication will use OAuth2 / JWT bearer tokens with scope-based access control.
 - Inventory persistence is available through an existing backend storage layer or service.
 - User interface work and mobile client integration are out of scope for this feature.
